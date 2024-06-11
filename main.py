@@ -53,7 +53,14 @@ def new_file(window, text):
     tk.messagebox.showinfo("Notification","New File Opened")
 
 def new_window():
-    main() 
+    main()
+    # Notification to alert the user
+    tk.messagebox.showinfo("Notification","New Window Opened") 
+
+def shortcuts():
+    # Notification containing all of the shortcuts
+    tk.messagebox.showinfo("Notification", "Ctrl + N -> New File \nCtrl + O -> Open File \nCtrl + W -> Open New Window \nCtrl + S -> Save File") 
+
 
 
 def main():
@@ -75,8 +82,12 @@ def main():
     menu_bar = tk.Menu(window)
     window.config(menu=menu_bar)
 
-    file_menu = tk.Menu(menu_bar, tearoff=0)
+    file_menu = tk.Menu(menu_bar, tearoff=0, bd=2)
+    help_menu = tk.Menu(menu_bar, tearoff=0, bd=2)
+
     menu_bar.add_cascade(label="File", menu=file_menu)
+    menu_bar.add_cascade(label="Help", menu=help_menu)
+
 
     file_menu.add_command(label="New", command=lambda: new_file(window, text_editor))
     file_menu.add_command(label="Open", command=lambda: open_file(window, text_editor))
@@ -84,6 +95,9 @@ def main():
     file_menu.add_command(label="Save", command=lambda: save_file(window, text_editor))
     file_menu.add_separator()
     file_menu.add_command(label="Exit", command=window.destroy)
+
+
+    help_menu.add_command(label="Keyboard Shortcuts", command=lambda: shortcuts())
 
 
     # Key binds for shortcuts
