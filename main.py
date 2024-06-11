@@ -65,26 +65,26 @@ def main():
 
     text_editor = tk.Text(window)
     text_editor.grid(row=0, column=1)
+    text_editor.pack(expand="yes", fill="both")
 
 
     # relief=tk.RAISED is to give 3D Effect
-    frame = tk.Frame(window, relief=tk.RAISED,bd=2)
+    # frame = tk.Frame(window, relief=tk.RAISED,bd=2)
 
+    # File-menu
+    menu_bar = tk.Menu(window)
+    window.config(menu=menu_bar)
 
-    open_button = tk.Button(frame, text="Open", command=lambda: open_file(window, text_editor))
-    save_button = tk.Button(frame, text="Save", command=lambda: save_file(window, text_editor))
-    new_button = tk.Button(frame, text="New File", command=lambda: new_file(window, text_editor))
-    new_window_button = tk.Button(frame, text="New Window", command=lambda: new_window())
+    file_menu = tk.Menu(menu_bar, tearoff=0)
+    menu_bar.add_cascade(label="File", menu=file_menu)
 
+    file_menu.add_command(label="New", command=lambda: new_file(window, text_editor))
+    file_menu.add_command(label="Open", command=lambda: open_file(window, text_editor))
+    file_menu.add_command(label="Open New Window", command=lambda: new_window())
+    file_menu.add_command(label="Save", command=lambda: save_file(window, text_editor))
+    file_menu.add_separator()
+    file_menu.add_command(label="Exit", command=window.destroy)
 
-
-
-    open_button.grid(row=0, column=0, padx=5, pady=5, sticky="ew")
-    save_button.grid(row=1, column=0, padx=5, pady=5, sticky="ew")
-    new_button.grid(row=2, column=0, padx=5, pady=5, sticky="ew")
-    new_window_button.grid(row=3, column=0, padx=5, pady=5, sticky="ew")
-
-    frame.grid(row=0, column=0, sticky="ns")
 
     # Key binds for shortcuts
     window.bind("<Control-o>", lambda x: open_file(window, text_editor))
