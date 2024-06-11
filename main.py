@@ -50,7 +50,10 @@ def new_file(window, text):
     window.title("New File")
 
     # Notification to alert the user
-    tk.messagebox.showinfo("Notification","New File Opened") 
+    tk.messagebox.showinfo("Notification","New File Opened")
+
+def new_window():
+    main() 
 
 
 def main():
@@ -66,20 +69,28 @@ def main():
 
     # relief=tk.RAISED is to give 3D Effect
     frame = tk.Frame(window, relief=tk.RAISED,bd=2)
+
+
     open_button = tk.Button(frame, text="Open", command=lambda: open_file(window, text_editor))
     save_button = tk.Button(frame, text="Save", command=lambda: save_file(window, text_editor))
-    new_button = tk.Button(frame, text="New", command=lambda: new_file(window, text_editor))
+    new_button = tk.Button(frame, text="New File", command=lambda: new_file(window, text_editor))
+    new_window_button = tk.Button(frame, text="New Window", command=lambda: new_window())
+
+
 
 
     open_button.grid(row=0, column=0, padx=5, pady=5, sticky="ew")
     save_button.grid(row=1, column=0, padx=5, pady=5, sticky="ew")
     new_button.grid(row=2, column=0, padx=5, pady=5, sticky="ew")
+    new_window_button.grid(row=3, column=0, padx=5, pady=5, sticky="ew")
+
     frame.grid(row=0, column=0, sticky="ns")
 
     # Key binds for shortcuts
     window.bind("<Control-o>", lambda x: open_file(window, text_editor))
     window.bind("<Control-s>", lambda x: save_file(window, text_editor))
     window.bind("<Control-n>", lambda x: new_file(window, text_editor))
+    window.bind("<Control-w>", lambda x: new_window())
 
 
 
