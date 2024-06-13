@@ -63,10 +63,10 @@ def new_window():
 
 def shortcuts():
     # Notification containing all of the shortcuts
-    mb.showinfo("Notification", "Ctrl + N -> New File\nCtrl + O -> Open File\nCtrl + W -> Open New Window\nCtrl + S -> Save File") 
+    mb.showinfo("Notification", "Ctrl + N -> New File\nCtrl + O -> Open File\nCtrl + W -> Open New Window\nCtrl + S -> Save File\nCtrl + t -> Speech to Text") 
 
 
-def speech_to_text(window, text):
+def speech_to_text(text):
     recogniser = sr.Recognizer()
     with sr.Microphone() as source:
         # Notification to alert the user
@@ -116,13 +116,14 @@ def main():
     file_menu.add_command(label="Exit", command=window.destroy)
 
     help_menu.add_command(label="Keyboard Shortcuts", command=lambda: shortcuts())
-    help_menu.add_command(label="Speech to Text", command=lambda: speech_to_text(window, text_editor))
+    help_menu.add_command(label="Speech to Text", command=lambda: speech_to_text(text_editor))
 
     # Key binds for shortcuts
     window.bind("<Control-o>", lambda x: open_file(window, text_editor))
     window.bind("<Control-s>", lambda x: save_file(window, text_editor))
     window.bind("<Control-n>", lambda x: new_file(window, text_editor))
     window.bind("<Control-w>", lambda x: new_window())
+    window.bind("<Control-t>", lambda x: speech_to_text(text_editor))
 
     window.mainloop()
 
