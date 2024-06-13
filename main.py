@@ -170,7 +170,7 @@ def main():
     window.bind("<Control-s>", lambda x: save_file(window, text_editor))
     window.bind("<Control-n>", lambda x: new_file(window, text_editor))
     window.bind("<Control-w>", lambda x: new_window())
-    window.bind("<Control-t>", lambda x: speech_to_text(text_editor))
+    window.bind("<Control-p>", lambda x: speech_to_text(text_editor))
     window.bind("<Control-q>", lambda x: toggle_dark_mode(window, text_editor, current_theme))
     window.bind("<Control-=>", lambda x: zoom_in(text_editor, font_size))
     window.bind("<Control-minus>", lambda x: zoom_out(text_editor, font_size))
