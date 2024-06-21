@@ -7,6 +7,6 @@ This project is my attempt to build a basic Python text editor containing variou
 # Set up
 If you'd like to run the Python scripts provided below, please ensure that you have Python installed on your system. You can download and install Python from the official Python website: [python.org/downloads](https://www.python.org/downloads/).
 
-**Terminial commands for libray used:**
+**Terminial commands for library used:**
 
 - `pip install SpeechRecognition`
