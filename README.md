@@ -10,3 +10,5 @@ If you'd like to run the Python scripts provided above, please ensure that you h
 **Terminial commands for library used:**
 
 - `pip install SpeechRecognition`
+
+If you have any questions, don't hesitate to drop a message on my [LinkedIn](https://www.linkedin.com/in/koushic-sumathi-kumar/) :)
